@@ -1,0 +1,29 @@
+/*package whatever //do not write package name here */
+
+import java.io.*;
+
+class GFG {
+    static int count=0;
+    public static void queencombination(boolean []b,int qpsf,int tq,String ans,int lastindex)
+    {
+        if(tq==qpsf)
+        {
+            count++;
+            System.out.println(count+" "+ans);
+            return;
+        }
+        for(int i=lastindex+1;i<b.length;i++)
+        {
+            if(b[i]==false)
+            {
+                b[i]=true;
+                queencombination(b,qpsf+1,tq,ans+"q"+i+"b"+i+" ",i);
+                b[i]=false;
+            }
+        }
+    }
+	public static void main (String[] args) {
+	    
+		queencombination(new boolean [4],0,2,"",-1);
+	}
+}
